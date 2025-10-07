@@ -1,0 +1,775 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    background-color: #040714;
+    /* **Couleur d'origine conservée** */
+    min-height: 100vh;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ------------------------------
+PAGE D'ACCUEIL (image de fond)
+------------------------------ */
+.page-accueil {
+    background-image: url("img/original_2.jpeg");
+    /* **chemin original conservé** */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-blend-mode: multiply;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+/* Header et bouton S'IDENTIFIER */
+.header-identification {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 20;
+}
+
+.btn-identification {
+    padding: 8px 25px;
+    border: 1px solid white;
+    border-radius: 4px;
+    color: white;
+    background-color: black;
+    /* **conservé** */
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.btn-identification:hover {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-color: white;
+}
+
+/* Contenu principal centré */
+.contenu-principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    /* laisse la place au header */
+    text-align: center;
+    width: 100%;
+    padding: 6vh 4vw;
+    position: relative;
+    z-index: 5;
+}
+
+.message-central {
+    width: min(1100px, 92%);
+    padding: 10px 16px;
+    margin: 0 auto;
+    /* position verticale douce : pas de margin-top négatif qui casse sur mobile */
+}
+
+/* Titres et textes — tailles fluides */
+h1 {
+    font-size: clamp(1.4rem, 3.6vw, 3rem);
+    line-height: 1.08;
+    margin: 0 0 18px 0;
+    font-weight: 700;
+    text-wrap: balance;
+}
+
+.slogan {
+    font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+    font-weight: 400;
+    margin-bottom: 18px;
+}
+
+.instruction {
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 14px;
+}
+
+/* Formulaire et alignement (responsive) */
+.formulaire-email {
+    display: flex;
+    gap: 0;
+    margin: 0 auto;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    justify-content: center;
+}
+
+#email-address {
+    flex: 1 1 auto;
+    padding: 14px 14px;
+    font-size: 1rem;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.12);
+    color: white;
+    min-width: 0;
+    /* important pour flex sur petits écrans */
+}
+
+#email-address::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Bouton d'inscription — **couleurs conservées** */
+.btn-inscription {
+    padding: 14px 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    background-color: #05d6e8;
+    /* **conservé** */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-inscription:hover {
+    background-color: #02D6E8;
+}
+
+/* Texte d'offre et notes */
+.offre-speciale {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 18px;
+    margin-bottom: 8px;
+}
+
+.notes-bas-de-page {
+    margin-top: 12px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.notes-bas-de-page p {
+    font-size: 11px;
+    margin: 4px 0;
+}
+
+/* Flèche de défilement (conserve look) */
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.arrow-down {
+    display: block;
+    font-size: clamp(28px, 5.5vw, 40px);
+    line-height: 1;
+    color: white;
+    text-decoration: none;
+    opacity: 0.9;
+    transition: opacity 0.3s;
+    animation: bounce 2.4s infinite;
+}
+
+.arrow-down:hover {
+    opacity: 1;
+}
+
+/* animation bounce simple */
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(-8px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(-4px);
+    }
+}
+
+/* ------------------------------
+SECTION SECONDAIRE "DISNEY"
+------------------------------ */
+.disney {
+    background-image: url("img/original_4.jpeg");
+    /* **chemin conservé** */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 200px;
+    padding-left: 5%;
+    position: relative;
+    color: #B7B8BD;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: multiply;
+}
+
+.disney>div {
+    max-width: 400px;
+    padding: 0;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.disney h2 {
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    line-height: 1.08;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.disney .description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.disney .copyright {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ------------------------------
+SECTION ABONNEMENT
+------------------------------ */
+.Abonnement {
+    background-color: #040714;
+    color: #fff;
+    padding: 60px 4vw;
+    font-family: Arial, sans-serif;
+}
+
+.abonnement-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.Abonnement h2 {
+    font-size: clamp(1.6rem, 2.8vw, 2.5rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* tableau : garde le rendu visuel mais permet scroll horizontal sur petit écran */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: transparent;
+    text-align: center;
+    min-width: 640px;
+    /* permet un rendu lisible et scroll horizontal sur petit écran */
+}
+
+thead th {
+    padding: 12px;
+    border-bottom: 2px solid #333;
+    font-size: 1.05em;
+    font-weight: 600;
+}
+
+tbody td {
+    padding: 14px 10px;
+    border-top: 1px solid #333;
+    font-size: 1rem;
+    color: #fff;
+}
+
+tbody td:first-child {
+    text-align: left;
+    font-weight: 400;
+    color: #ccc;
+}
+
+table th.premium-col,
+table td:nth-child(4) {
+    background-color: #1a1e23;
+}
+
+.price-row td {
+    font-size: 1.05em;
+    font-weight: 600;
+    padding: 18px 10px;
+}
+
+.price-row a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.feature-check {
+    color: #ffffff;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* notes sous le tableau */
+.notes {
+    text-align: left;
+    margin-top: 20px;
+    padding: 0 10px;
+}
+
+.note-simple {
+    font-size: 0.95em;
+    color: #AAA;
+    margin-bottom: 10px;
+}
+
+.note-detail {
+    font-size: 0.78em;
+    line-height: 1.4;
+    color: #777;
+}
+
+/* ------------------------------
+SECTION ADS
+------------------------------ */
+.ADS {
+    background-color: #040714;
+    color: white;
+    padding: 60px 4vw;
+    text-align: center;
+}
+
+.ADS .main-content-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.ADS .benefits-row {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 36px auto 0 auto;
+    padding: 0 12px;
+}
+
+.ADS .benefit-item {
+    flex: 1 1 240px;
+    padding: 0 12px;
+    text-align: center;
+    max-width: 340px;
+}
+
+.ADS .benefit-item img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 14px;
+}
+
+.ADS .benefit-item p:first-of-type {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 6px 0;
+}
+
+.ADS .benefit-item .detail {
+    font-size: 0.95rem;
+    color: #AAA;
+    line-height: 1.4;
+}
+
+/* ------------------------------
+SECTION FAQ
+------------------------------ */
+.FAQ {
+    margin: 20px auto;
+    background-color: #040714;
+    color: white;
+    border-radius: 4px;
+    padding: 18px 4vw;
+    width: 100%;
+}
+
+.FAQ h4 {
+    font-size: 1.5em;
+    padding: 8px 0 10px 0;
+    margin: 0 0 12px 0;
+}
+
+/* chaque details */
+.FAQ details {
+    margin-bottom: 8px;
+    background-color: #13151D;
+    border-radius: 4px;
+    border: none;
+    padding: 0 18px;
+    overflow: hidden;
+}
+
+summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.05em;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 16px 0;
+    user-select: none;
+}
+
+summary::after {
+    content: '+';
+    font-size: 1.2em;
+    margin-left: 15px;
+}
+
+details[open] summary::after {
+    content: '−';
+}
+
+.reponse-contenu {
+    padding: 16px 0 20px 0;
+    border-top: 1px solid #333;
+}
+
+.reponse-contenu p,
+.reponse-contenu ul,
+.reponse-contenu ol {
+    margin-top: 0;
+}
+
+.reponse-contenu ul,
+.reponse-contenu ol {
+    list-style-position: inside;
+    padding-left: 18px;
+}
+
+/* ------------------------------
+SECTION APPAREILS
+------------------------------ */
+.appareils {
+    min-height: auto;
+    background-color: #040714;
+    color: white;
+    padding: 60px 4vw;
+    text-align: center;
+}
+
+.appareils h2 {
+    font-size: clamp(1.25rem, 2.2vw, 2.5rem);
+    margin-bottom: 32px;
+}
+
+.appareils-row {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 12px;
+}
+
+.appareil-item {
+    list-style: none;
+    flex: 1 1 220px;
+    max-width: 300px;
+    padding: 0 12px;
+    text-align: center;
+}
+
+.appareil-icon {
+    width: 180px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 14px;
+}
+
+/* Liste dans la section appareils */
+.appareils ul {
+    list-style-type: none; /* Supprime les points */
+    padding-left: 0; /* Enlève l’espace de gauche */
+    margin: 0;
+    color: #B7B8BD; /* Couleur du texte */
+}
+
+/* Applique aussi la couleur directement aux éléments de liste */
+.appareils li {
+    color: #B7B8BD;
+}
+/* ------------------------------
+FOOTER
+------------------------------ */
+footer {
+    background-color: #040714;
+    color: #AAA;
+    padding: 40px 4vw;
+    font-size: 14px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 12px;
+}
+
+.footer-logo img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 18px;
+}
+
+.footer-links-row {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.footer-links-row li {
+    padding: 0;
+}
+
+.footer-links-row a {
+    color: #AAA;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links-row a:hover {
+    color: white;
+}
+
+/* language selector wrapper (conserve ton style original) */
+.language-row-wrapper {
+    margin: 20px auto 35px auto;
+    border: 1px solid #222538;
+    border-radius: 4px;
+    padding: 10px 0;
+    max-width: 350px;
+    transition: border-color 0.2s;
+}
+
+.language-row-wrapper.is-open {
+    border-color: white;
+}
+
+.language-list-solo {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.language-display {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0 10px;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+}
+
+/* ------------------------------
+RESPONSIVE — Media queries
+------------------------------ */
+
+/* Tablette / petits laptops */
+@media (max-width: 1024px) {
+    .disney {
+        padding-top: 120px;
+        padding-left: 5%;
+        background-position: center;
+    }
+
+    .Abonnement {
+        padding: 48px 4vw;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}
+
+/* Smartphones / petits écrans */
+@media (max-width: 768px) {
+    .header-identification {
+        padding: 10px 16px;
+    }
+
+    .btn-identification {
+        padding: 6px 14px;
+        font-size: 12px;
+    }
+
+    .contenu-principal {
+        padding: 8vh 4vw;
+        min-height: calc(100vh - 64px);
+    }
+
+    .message-central {
+        padding: 6px 10px;
+    }
+
+    h1 {
+        font-size: clamp(1.2rem, 5.2vw, 1.9rem);
+    }
+
+    .slogan {
+        font-size: 1rem;
+    }
+
+    .formulaire-email {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+        max-width: 480px;
+    }
+
+    #email-address {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .btn-inscription {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .disney {
+        padding-top: 90px;
+        padding-left: 4vw;
+        background-position: center top;
+        align-items: center;
+    }
+
+    .disney>div {
+        max-width: 92%;
+        text-align: center;
+        margin: 0 auto 24px auto;
+    }
+
+    .ADS .benefits-row,
+    .appareils-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .appareil-icon {
+        width: 150px;
+    }
+
+    .footer-links-row {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+}
+
+/* Très petits écrans */
+@media (max-width: 480px) {
+    .header-identification {
+        padding: 8px 12px;
+    }
+
+    .message-central {
+        padding-top: 6vh;
+    }
+
+    h1 {
+        font-size: clamp(1rem, 6.5vw, 1.5rem);
+    }
+
+    .offre-speciale,
+    .notes-bas-de-page {
+        font-size: 11px;
+    }
+
+    .disney {
+        padding-top: 70px;
+        padding-left: 4vw;
+    }
+
+    .Abonnement {
+        padding: 32px 3vw;
+    }
+
+    table {
+        min-width: 520px;
+    }
+
+    /* le table-wrapper permettra le scroll horizontal */
+    .arrow-down {
+        bottom: 14px;
+    }
+}
+
+/* Force les images à être responsives (ne pas "supprimer" les images) */
+img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+/* utilitaires */
+.hidden-mobile {
+    display: none;
+}
+
+@media (min-width: 769px) {
+    .hidden-mobile {
+        display: initial;
+    }
+}
